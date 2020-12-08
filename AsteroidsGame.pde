@@ -15,7 +15,7 @@ public void setup()
   for (int i = 0; i < galaxy.length; i++) {
     galaxy[i] = new Star();
   }
-  textSize(width/50);
+  textSize(height/50);
   textAlign(TOP,LEFT);
 }
 public void draw()
