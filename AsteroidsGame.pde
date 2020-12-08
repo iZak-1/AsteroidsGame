@@ -15,8 +15,8 @@ public void setup()
   for (int i = 0; i < galaxy.length; i++) {
     galaxy[i] = new Star();
   }
-  textSize(height/50);
-  textAlign(TOP,LEFT);
+  textSize(height/40);
+  textAlign(LEFT,TOP);
 }
 public void draw()
 {
@@ -33,10 +33,10 @@ public void draw()
     fill(255);
     text(Dragon.getData(3),width/100,height/50);
     if(aIsPressed) {
-      Dragon.turn(-3);
+      Dragon.turn(-2);
     }
     if(dIsPressed) {
-      Dragon.turn(3);
+      Dragon.turn(2);
     }
     if(wIsPressed) {
       Dragon.accelerate(0.1);
