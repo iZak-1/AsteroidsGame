@@ -67,7 +67,7 @@ class Spaceship extends Floater
     myColor=color((int)(255.0*Math.random()),(int)(255.0*Math.random()),(int)(255.0*Math.random())); //flash colors
     turn(0.5*teleportProgress); //spin
     if(teleportProgress>=100){ //if it's done teleporting, give it a new position and rotation, and make the teleport progress be zero (so it stops teleporting)
-      turn(360.0*Math.random());
+      turn((int)(360.0*Math.random()));
       setPos(width*Math.random(),height*Math.random());
       teleportProgress=0;
       beta=255;
