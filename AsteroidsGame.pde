@@ -9,7 +9,7 @@ Spaceship Dragon;
 Star[] galaxy = new Star[250];
 public void setup()
 {
-  size(1000, 1000);
+  size((int)(0.95*window.innerWidth), (int)(0.95*window.innerHeight)); 
   frameRate(100);
   Dragon = new Spaceship();
   for (int i = 0; i < galaxy.length; i++) {
