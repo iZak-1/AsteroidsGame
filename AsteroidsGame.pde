@@ -2,17 +2,26 @@ boolean wIsPressed = false;
 boolean spaceIsPressed = false;
 boolean aIsPressed = false;
 boolean dIsPressed = false;
+//^keys aren't being pressed
+
 
 float teleportProgress=0; //percentage of the teleportation that's been done
 
+ArrayList <Asteroid> roids;
+Asteroid test = new Asteroid();
+Asteroid noMoon;
 Spaceship Dragon;
-Star[] galaxy = new Star[250];
+Star[] galaxy = new Star[100];
 public void setup()
 {
-  size((int)(0.95*window.innerWidth), (int)(0.95*window.innerHeight)); 
+  size(1458, 685); //size((int)(0.95*window.innerWidth), (int)(0.95*window.innerHeight)); 
   frameRate(100);
   Dragon = new Spaceship();
-  for (int i = 0; i < galaxy.length; i++) {
+  roids = new ArrayList <Asteroid>();
+  for (int i = 0; i < 10; i++) { //draw the stars
+    roids.add(new Asteroid());
+  }
+  for (int i = 0; i < galaxy.length; i++) { //draw the stars
     galaxy[i] = new Star();
   }
   textSize(height/40);
@@ -22,10 +31,11 @@ public void draw()
 {
   background(0);
   
-  for (int i = 0; i < galaxy.length; i++) {
+  for (int i = 0; i < galaxy.length; i++) { //show galaxies
     galaxy[i].show();
   }
   
+  //ship stuff
   if(teleportProgress>0) { //if teleporting, keep teleporting
     Dragon.teleport();
   }
@@ -39,7 +49,7 @@ public void draw()
       Dragon.turn(2);
     }
     if(wIsPressed) {
-      Dragon.accelerate(0.1);
+      Dragon.accelerate(0.05);
       Dragon.thrust();
     }
     if(spaceIsPressed) { //if you hit the teleport button, stop and begin the teleportation sequence
@@ -52,6 +62,16 @@ public void draw()
   }
   Dragon.show();
   Dragon.move();
+  //end ship stuff
+  
+  for (int i = roids.size()-1; i >= 0; i--) { //show galaxies
+      Asteroid activeRoid = roids.get(i);
+      activeRoid.show();
+      activeRoid.move();
+      if(dist((float)activeRoid.getX(),(float)activeRoid.getY(),(float)Dragon.getX(),(float)Dragon.getY())<25) {
+        roids.remove(i);
+      }
+  }
 }
 
 

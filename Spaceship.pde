@@ -1,11 +1,11 @@
-class Spaceship extends Floater  
+class Spaceship extends Floater   //<>//
 {
   private float beta;
   Spaceship() {
     myColor=255;
     corners = 3;
     xCorners = new int[] {-10,-10,10};
-    yCorners = new int[] {-10,10,0};
+    yCorners = new int[] {-7,7,0};
     myCenterX=width/2;
     myCenterY=height/2;
     beta=255;
@@ -28,9 +28,9 @@ class Spaceship extends Floater
     rotate(dRadians);
 
     //draw the polygon
-    line(-15,0,-25,0);
-    line(-15,-3,-25,-6);
-    line(-15,3,-25,6);
+    line(-15,0,-20,0);
+    line(-15,-3,-20,-4);
+    line(-15,3,-20,4);
     
     popMatrix();
   }
