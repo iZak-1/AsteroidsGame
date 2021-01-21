@@ -1,11 +1,10 @@
-class Asteroid extends Floater  
+class Asteroid extends Floater
 {
   private float rotSpeed;
-  int corners;
   private int startSide = (int)(4.0*Math.random());
   
   Asteroid() {
-    myColor=255;
+    myColor=150;
     
     
     //CORNERS FUNCTION
@@ -49,50 +48,28 @@ class Asteroid extends Floater
       myCenterX=Math.random()*width;
       myCenterY=height;
     }
-    
-  }
-  public void move ()   //move the floater in the current direction of travel
-  {      
-    //change the x and y coordinates by myXspeed and myYspeed       
-    myCenterX += myXspeed;    
-    myCenterY += myYspeed;
-    myPointDirection+=rotSpeed;
-
-    //wrap around screen    
-    if(myCenterX >width)
-    {     
-      myCenterX = 0;    
-    }    
-    else if (myCenterX<0)
-    {     
-      myCenterX = width;    
-    }    
-    if(myCenterY >height)
-    {    
-      myCenterY = 0;    
-    } 
-    
-    else if (myCenterY < 0)
-    {     
-      myCenterY = height;    
-    }   
   }
   
-  public void show ()  //Draws the floater at the current position  
-  {
+  public void move() {
+    turn(rotSpeed);
+    super.move();
+  }
+  /**
+  public void show ()  //copy-pasted, no idea why it doesn't work with the regular inheritance  
+  { 
+    System.out.println("Show from asteroid");
+    fill(myColor);   
+    stroke(myColor);    
     
-    pushMatrix();
-    fill(myColor);
-    stroke(myColor);
-
     //translate the (x,y) center of the ship to the correct position
     translate((float)myCenterX, (float)myCenterY);
 
-    //convert degrees to radians for rotate()
+    //convert degrees to radians for rotate()     
     float dRadians = (float)(myPointDirection*(Math.PI/180));
+    
     //rotate so that the polygon will be drawn in the correct direction
     rotate(dRadians);
-
+    
     //draw the polygon
     beginShape();
     for (int nI = 0; nI < corners; nI++)
@@ -100,9 +77,12 @@ class Asteroid extends Floater
       vertex(xCorners[nI], yCorners[nI]);
     }
     endShape(CLOSE);
-    
-    popMatrix();
-  }
+
+    //"unrotate" and "untranslate" in reverse order
+    rotate(-1*dRadians);
+    translate(-1*(float)myCenterX, -1*(float)myCenterY);
+  }   
+  */
   
   public double getX() {
     return myCenterX;

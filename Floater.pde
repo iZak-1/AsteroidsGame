@@ -23,10 +23,10 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     myPointDirection+=degreesOfRotation;   
   }   
   public void move ()   //move the floater in the current direction of travel
-  {      
+  {
     //change the x and y coordinates by myXspeed and myYspeed       
     myCenterX += myXspeed;    
-    myCenterY += myYspeed;     
+    myCenterY += myYspeed;
 
     //wrap around screen    
     if(myCenterX >width)
@@ -48,7 +48,7 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     }   
   }   
   public void show ()  //Draws the floater at the current position  
-  {             
+  {
     fill(myColor);   
     stroke(myColor);    
     

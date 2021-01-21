@@ -12,13 +12,15 @@ Asteroid test = new Asteroid();
 Asteroid noMoon;
 Spaceship Dragon;
 Star[] galaxy = new Star[100];
+int numRoids = 10;
 public void setup()
 {
-  size(1458, 685); //size((int)(0.95*window.innerWidth), (int)(0.95*window.innerHeight)); 
+  noCursor();
+  size(1000, 500); //size((int)(0.95*window.innerWidth), (int)(0.95*window.innerHeight)); 
   frameRate(100);
   Dragon = new Spaceship();
   roids = new ArrayList <Asteroid>();
-  for (int i = 0; i < 10; i++) { //draw the stars
+  for (int i = 0; i < numRoids; i++) { //draw the stars
     roids.add(new Asteroid());
   }
   for (int i = 0; i < galaxy.length; i++) { //draw the stars
@@ -68,10 +70,12 @@ public void draw()
       Asteroid activeRoid = roids.get(i);
       activeRoid.show();
       activeRoid.move();
-      if(dist((float)activeRoid.getX(),(float)activeRoid.getY(),(float)Dragon.getX(),(float)Dragon.getY())<25) {
+      //activeRoid.turn(activeRoid.getRotSpeed());
+      if(dist((float)activeRoid.getX(),(float)activeRoid.getY(),(float)Dragon.getX(),(float)Dragon.getY())<25&&teleportProgress==0) {
         roids.remove(i);
       }
   }
+  System.out.println(frameRate);
 }
 
 

@@ -3,7 +3,7 @@ body {
     background-color: rgb(200,200,200);
     color: rgb(0,0,0);
     font-family: "Open Sans", sans-serif;
-    text-align: center
+    text-align: center;
 }
 
 #content {
@@ -17,8 +17,7 @@ header {
 }
 
 footer {
-	font-style: normal;
-	folt-weight: normal;
-	font-size: 100%;
+	font-style: italic;
+	font-size: 90%;
 }
 
